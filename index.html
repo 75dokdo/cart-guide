@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAR-T 세포치료 환자 및 보호자 가이드라인</title>
+    <!-- Tailwind CSS (디자인을 위한 프레임워크) 불러오기 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* 탭 전환 시 부드러운 애니메이션 효과 */
+        .tab-content { 
+            display: none; 
+            animation: slideUpFade 0.5s ease-out forwards;
+        }
+        .tab-content.active { 
+            display: block; 
+        }
+        
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800">
+
+    <!-- 상단 헤더 영역 -->
+    <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-12 md:py-16 px-4 shadow-md">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center space-x-2 mb-4">
+                <span class="text-2xl">💖</span>
+                <span class="text-blue-200 font-semibold tracking-wider text-sm">환자 및 보호자 맞춤 안내서</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+                CAR-T 세포치료 가이드라인
+            </h1>
+            <p class="text-base md:text-xl text-blue-100 max-w-2xl leading-relaxed">
+                환자 본인의 면역 세포를 이용해 암을 치료하는 혁신적인 맞춤형 치료법, CAR-T. 
+                성공적인 치료와 안전한 회복을 위해 환자와 보호자가 알아야 할 모든 것을 안내합니다.
+            </p>
+        </div>
+    </header>
+
+    <!-- 네비게이션 탭 영역 -->
+    <div class="bg-white shadow-sm sticky top-0 z-10 overflow-x-auto">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="flex space-x-2 md:space-x-8 py-1 min-w-max" id="tab-buttons">
+                <button id="btn-overview" onclick="switchTab('overview')" class="tab-btn flex items-center px-4 py-4 font-medium transition-colors border-b-2 whitespace-nowrap border-blue-600 text-blue-700">
+                    <span class="mr-2 text-xl">ℹ️</span> 치료 개요
+                </button>
+                <button id="btn-process" onclick="switchTab('process')" class="tab-btn flex items-center px-4 py-4 font-medium transition-colors border-b-2 whitespace-nowrap border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-50">
+                    <span class="mr-2 text-xl">📅</span> 치료 과정
+                </button>
+                <button id="btn-side-effects" onclick="switchTab('side-effects')" class="tab-btn flex items-center px-4 py-4 font-medium transition-colors border-b-2 whitespace-nowrap border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-50">
+                    <span class="mr-2 text-xl">🛡️</span> 주요 부작용
+                </button>
+                <button id="btn-caregiver" onclick="switchTab('caregiver')" class="tab-btn flex items-center px-4 py-4 font-medium transition-colors border-b-2 whitespace-nowrap border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-50">
+                    <span class="mr-2 text-xl">👥</span> 보호자 역할
+                </button>
+                <button id="btn-lifestyle" onclick="switchTab('lifestyle')" class="tab-btn flex items-center px-4 py-4 font-medium transition-colors border-b-2 whitespace-nowrap border-transparent text-slate-500 hover:text-slate-800 hover:bg-slate-50">
+                    <span class="mr-2 text-xl">🏠</span> 일상생활 수칙
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="max-w-5xl mx-auto px-4 py-10 min-h-[500px]">
+        
+        <!-- 1. 치료 개요 탭 -->
+        <div id="overview" class="tab-content active">
+            <section class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+                <h2 class="text-xl md:text-2xl font-bold mb-4 flex items-center text-blue-900">
+                    <span class="text-2xl mr-3">ℹ️</span> CAR-T 세포치료란 무엇인가요?
+                </h2>
+                <p class="text-slate-600 leading-relaxed text-base md:text-lg mb-6">
+                    CAR-T(Chimeric Antigen Receptor T-cell) 세포치료는 환자의 혈액에서 면역 세포인 T세포를 추출한 뒤, 
+                    암세포를 잘 인식하고 공격할 수 있도록 유전자를 조작하여 다시 환자의 몸에 주입하는 
+                    <strong> '개인 맞춤형 면역 항암 치료'</strong>입니다.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-2xl">📈</div>
+                        <h3 class="font-bold text-lg mb-2">살아있는 약</h3>
+                        <p class="text-slate-600 text-sm">한 번 주입되면 체내에서 증식하며 지속적으로 암세포를 찾아 공격합니다.</p>
+                    </div>
+                    <div class="bg-indigo-50 p-6 rounded-xl">
+                        <div class="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-2xl">🩺</div>
+                        <h3 class="font-bold text-lg mb-2">맞춤형 치료</h3>
+                        <p class="text-slate-600 text-sm">다른 사람의 세포가 아닌 환자 본인의 세포를 사용하여 면역 거부 반응이 적습니다.</p>
+                    </div>
+                    <div class="bg-emerald-50 p-6 rounded-xl">
+                        <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-2xl">🛡️</div>
+                        <h3 class="font-bold text-lg mb-2">단회 투여</h3>
+                        <p class="text-slate-600 text-sm">일반적인 항암치료와 달리 보통 1회 주입만으로 치료가 완료됩니다.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- 2. 치료 과정 탭 -->
+        <div id="process" class="tab-content">
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+                <h2 class="text-xl md:text-2xl font-bold mb-8 flex items-center text-blue-900">
+                    <span class="text-2xl mr-3">📅</span> 전체 치료 과정 안내
+                </h2>
+                <div class="relative border-l-2 border-blue-200 ml-3 md:ml-6 space-y-10 md:space-y-12">
+                    
+                    <div class="relative pl-6 md:pl-10">
+                        <div class="absolute -left-[17px] bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-[0_0_0_4px_white]">1</div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800">T세포 채집 (성분채집술)</h3>
+                                <span class="text-xs md:text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full w-max mt-2 md:mt-0">약 2~4시간 소요</span>
+                            </div>
+                            <p class="text-slate-600 mt-2 text-sm md:text-base">환자의 혈액을 기계로 순환시키며 필요한 백혈구(T세포)만을 분리하여 채집합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-6 md:pl-10">
+                        <div class="absolute -left-[17px] bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-[0_0_0_4px_white]">2</div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800">CAR-T 세포 제조 및 배양</h3>
+                                <span class="text-xs md:text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full w-max mt-2 md:mt-0">약 3~5주 소요</span>
+                            </div>
+                            <p class="text-slate-600 mt-2 text-sm md:text-base">채집된 세포를 전문 제조 시설로 보내 암세포를 인지하는 유전자를 삽입하고 수를 대폭 늘립니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-6 md:pl-10">
+                        <div class="absolute -left-[17px] bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-[0_0_0_4px_white]">3</div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800">입원 및 전처치 항암치료</h3>
+                                <span class="text-xs md:text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full w-max mt-2 md:mt-0">주입 3~5일 전</span>
+                            </div>
+                            <p class="text-slate-600 mt-2 text-sm md:text-base">CAR-T 세포가 체내에 잘 생착될 수 있도록 몸속의 기존 림프구를 줄이는 가벼운 항암치료를 진행합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-6 md:pl-10">
+                        <div class="absolute -left-[17px] bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-[0_0_0_4px_white]">4</div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800">CAR-T 세포 주입</h3>
+                                <span class="text-xs md:text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full w-max mt-2 md:mt-0">당일 (약 15~30분)</span>
+                            </div>
+                            <p class="text-slate-600 mt-2 text-sm md:text-base">제조가 완료된 CAR-T 세포를 해동하여 수혈하듯 정맥 주사로 환자에게 주입합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-6 md:pl-10">
+                        <div class="absolute -left-[17px] bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold shadow-[0_0_0_4px_white]">5</div>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                                <h3 class="text-lg md:text-xl font-bold text-slate-800">집중 모니터링 및 회복</h3>
+                                <span class="text-xs md:text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full w-max mt-2 md:mt-0">주입 후 약 2~4주</span>
+                            </div>
+                            <p class="text-slate-600 mt-2 text-sm md:text-base">부작용 발생 여부를 24시간 모니터링하며 무균 병동에서 회복 시간을 가집니다.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 주요 부작용 탭 -->
+        <div id="side-effects" class="tab-content">
+            <div class="space-y-6">
+                <div class="bg-red-50 p-6 rounded-2xl border border-red-100 flex flex-col md:flex-row items-start md:space-x-4">
+                    <span class="text-3xl md:text-4xl mb-2 md:mb-0">🚨</span>
+                    <div>
+                        <h3 class="text-lg md:text-xl font-bold text-red-800 mb-2">응급 상황 대비</h3>
+                        <p class="text-red-700 text-sm md:text-base leading-relaxed">
+                            CAR-T 세포치료는 강력한 면역 반응을 일으키므로 심각한 부작용이 동반될 수 있습니다. 
+                            아래 증상이 나타나면 <strong class="underline font-bold">즉시 간호사 호출벨을 누르거나 의료진에게 알려야 합니다.</strong>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="flex items-center mb-4">
+                            <span class="text-2xl mr-2">🌡️</span>
+                            <h3 class="text-lg md:text-xl font-bold text-slate-800">사이토카인 방출 증후군 (CRS)</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-4">면역 세포가 암세포를 공격하면서 분비하는 물질로 인해 발생하는 전신 염증 반응입니다.</p>
+                        <h4 class="font-semibold text-slate-700 mb-3 border-b pb-1">주요 증상</h4>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start"><span class="mr-2">✅</span> 38도 이상의 고열 및 오한</li>
+                            <li class="flex items-start"><span class="mr-2">✅</span> 호흡 곤란 및 숨 가빠짐</li>
+                            <li class="flex items-start"><span class="mr-2">✅</span> 심박수 증가 및 극심한 피로감</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="flex items-center mb-4">
+                            <span class="text-2xl mr-2">📉</span>
+                            <h3 class="text-lg md:text-xl font-bold text-slate-800">신경독성 증후군 (ICANS)</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 mb-4">면역 반응이 중추신경계에 영향을 미쳐 일시적으로 나타나는 신경학적 증상입니다.</p>
+                        <h4 class="font-semibold text-slate-700 mb-3 border-b pb-1">주요 증상</h4>
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start"><span class="mr-2">✅</span> 의식 저하, 혼란스러움, 심한 졸음</li>
+                            <li class="flex items-start"><span class="mr-2">✅</span> 말이 어눌해지거나 단어가 생각나지 않음</li>
+                            <li class="flex items-start"><span class="mr-2">✅</span> 손떨림, 글씨 쓰기 어려워짐</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. 보호자 역할 탭 -->
+        <div id="caregiver" class="tab-content">
+            <div class="space-y-6 md:space-y-8">
+                <div class="bg-indigo-700 text-white p-6 md:p-8 rounded-2xl shadow-md">
+                    <h2 class="text-xl md:text-2xl font-bold mb-4 flex items-center">
+                        <span class="text-3xl mr-3">👥</span> 보호자는 제2의 의료진입니다
+                    </h2>
+                    <p class="text-indigo-100 text-base md:text-lg">
+                        부작용은 환자 스스로 인지하기 어려울 수 있습니다. 보호자의 세심한 관찰과 신속한 대처가 환자의 생명을 지킵니다. 주입 후 최소 4주간은 반드시 환자 곁에 상주해 주세요.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 border-b pb-2">필수 관찰 항목</h3>
+                        <ul class="space-y-5">
+                            <li class="flex gap-4">
+                                <div class="text-3xl">🌡️</div>
+                                <div>
+                                    <strong class="block text-slate-800">체온 측정</strong>
+                                    <p class="text-sm text-slate-600 mt-1">수시로 체온을 측정하여 38도 이상의 발열이나 오한이 있는지 확인합니다.</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4">
+                                <div class="text-3xl">ℹ️</div>
+                                <div>
+                                    <strong class="block text-slate-800">인지 능력 평가 (매일)</strong>
+                                    <p class="text-sm text-slate-600 mt-1">이름, 날짜, 장소를 명확히 대답하는지 묻고, 매일 같은 문장을 쓰게 하여 글씨가 흔들리지 않는지 확인합니다.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 border-b pb-2">보호자 행동 수칙</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start text-sm md:text-base text-slate-700">
+                                <span class="mr-2">➡️</span>
+                                <span><strong>이상 징후 발견 시 즉각 호출:</strong> 평소와 조금이라도 다르다면 고민하지 말고 즉시 간호사를 부르세요.</span>
+                            </li>
+                            <li class="flex items-start text-sm md:text-base text-slate-700">
+                                <span class="mr-2">➡️</span>
+                                <span><strong>철저한 감염 관리:</strong> 외부 면회객은 철저히 통제합니다.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 일상생활 수칙 탭 -->
+        <div id="lifestyle" class="tab-content">
+            <h2 class="text-xl md:text-2xl font-bold mb-6 flex items-center text-blue-900">
+                <span class="text-2xl mr-3">🏠</span> 퇴원 후 일상생활 (감염 예방)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-4xl mb-4">🍽️</div>
+                    <h3 class="font-bold text-lg mb-3 border-b pb-2">식생활 수칙</h3>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>• 모든 음식은 <strong>완전히 익혀서</strong> 먹습니다.</li>
+                        <li>• 물은 끓여 마시거나 개봉하지 않은 생수를 마십니다.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-4xl mb-4">🚿</div>
+                    <h3 class="font-bold text-lg mb-3 border-b pb-2">개인위생 및 환경</h3>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>• 화장실 사용 후, 식사 전 <strong>비누로 30초 이상 손 씻기</strong>를 합니다.</li>
+                        <li>• 화분(식물), 흙, 애완동물과의 접촉을 제한합니다.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="text-4xl mb-4">🚶</div>
+                    <h3 class="font-bold text-lg mb-3 border-b pb-2">외출 및 활동</h3>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>• 인파가 몰리는 곳 방문을 피합니다.</li>
+                        <li>• 외출 시 반드시 <strong>KF94 마스크</strong>를 착용합니다.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 하단 면책 조항 -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs md:text-sm px-4 mt-8">
+        <div class="max-w-4xl mx-auto">
+            <p class="mb-2 flex items-center justify-center font-semibold text-slate-300">
+                <span class="mr-2">🚨</span> 면책 조항 (Disclaimer)
+            </p>
+            <p class="leading-relaxed">
+                본 웹페이지에서 제공하는 정보는 환자 및 보호자의 일반적인 이해를 돕기 위한 참고 자료일 뿐, 전문적인 의학적 진단이나 진료를 대신할 수 없습니다.<br class="hidden md:block"/>
+                구체적인 치료 방법, 부작용 관리 및 주의사항은 <strong>반드시 담당 주치의 및 의료진의 직접적인 지시</strong>에 따라야 합니다.
+            </p>
+        </div>
+    </footer>
+
+    <!-- 탭 전환을 위한 자바스크립트 코드 -->
+    <script>
+        function switchTab(tabId) {
+            // 1. 모든 탭 내용 숨기기
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // 2. 모든 버튼 스타일 초기화 (회색으로)
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('border-blue-600', 'text-blue-700');
+                el.classList.add('border-transparent', 'text-slate-500');
+            });
+            
+            // 3. 클릭한 탭 내용 보여주기
+            document.getElementById(tabId).classList.add('active');
+            
+            // 4. 클릭한 탭 버튼 스타일 강조 (파란색으로)
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('border-transparent', 'text-slate-500');
+            activeBtn.classList.add('border-blue-600', 'text-blue-700');
+        }
+    </script>
+</body>
+</html>
