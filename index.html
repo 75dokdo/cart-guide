@@ -1,36 +1,38 @@
 import React, { useState } from 'react';
-import { 
-  Heart, 
-  Activity, 
-  ShieldAlert, 
-  Calendar, 
-  Users, 
-  Info, 
-  ArrowRight, 
-  CheckCircle2, 
-  AlertCircle, 
-  Thermometer,
-  Stethoscope,
-  Utensils,
-  Home,
-  MessageCircle,
-  ChevronDown,
-  Video,
-  FileText,
-  MousePointerClick
-} from 'lucide-react';
+
+// 아이콘 컴포넌트 (외부 라이브러리 없이 이모지로 구성하여 안전하게 렌더링됩니다)
+const Heart = ({ className }) => <span className={`inline-block ${className}`}>💖</span>;
+const Activity = ({ className }) => <span className={`inline-block ${className}`}>📈</span>;
+const ShieldAlert = ({ className }) => <span className={`inline-block ${className}`}>🛡️</span>;
+const Calendar = ({ className }) => <span className={`inline-block ${className}`}>📅</span>;
+const Users = ({ className }) => <span className={`inline-block ${className}`}>👥</span>;
+const Info = ({ className }) => <span className={`inline-block ${className}`}>ℹ️</span>;
+const ArrowRight = ({ className }) => <span className={`inline-block ${className}`}>➡️</span>;
+const CheckCircle2 = ({ className }) => <span className={`inline-block ${className}`}>✅</span>;
+const AlertCircle = ({ className }) => <span className={`inline-block ${className}`}>🚨</span>;
+const Thermometer = ({ className }) => <span className={`inline-block ${className}`}>🌡️</span>;
+const Stethoscope = ({ className }) => <span className={`inline-block ${className}`}>🩺</span>;
+const Utensils = ({ className }) => <span className={`inline-block ${className}`}>🍽️</span>;
+const Home = ({ className }) => <span className={`inline-block ${className}`}>🏠</span>;
+const Pill = ({ className }) => <span className={`inline-block ${className}`}>💊</span>;
+const Brain = ({ className }) => <span className={`inline-block ${className}`}>🧠</span>;
+const Clipboard = ({ className }) => <span className={`inline-block ${className}`}>📋</span>;
+const Microbe = ({ className }) => <span className={`inline-block ${className}`}>🦠</span>;
+const Car = ({ className }) => <span className={`inline-block ${className}`}>🚗</span>;
+const MessageCircle = ({ className }) => <span className={`inline-block ${className}`}>💬</span>;
+const ChevronDown = ({ className }) => <span className={`inline-block ${className}`}>🔽</span>;
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('overview');
   const [openFaq, setOpenFaq] = useState(null);
 
   const tabs = [
-    { id: 'overview', label: '치료 개요', icon: <Info className="w-4 h-4 mr-2" /> },
-    { id: 'process', label: '상세 치료 과정', icon: <Calendar className="w-4 h-4 mr-2" /> },
-    { id: 'side-effects', label: '주요 부작용', icon: <ShieldAlert className="w-4 h-4 mr-2" /> },
-    { id: 'caregiver', label: '보호자 역할', icon: <Users className="w-4 h-4 mr-2" /> },
-    { id: 'lifestyle', label: '일상생활 수칙', icon: <Home className="w-4 h-4 mr-2" /> },
-    { id: 'faq', label: '자주 묻는 질문(FAQ)', icon: <MessageCircle className="w-4 h-4 mr-2" /> },
+    { id: 'overview', label: '치료 개요', icon: <Info className="mr-2" /> },
+    { id: 'process', label: '상세 치료 과정', icon: <Calendar className="mr-2" /> },
+    { id: 'side-effects', label: '주요 부작용', icon: <ShieldAlert className="mr-2" /> },
+    { id: 'caregiver', label: '보호자 역할 (체크리스트)', icon: <Users className="mr-2" /> },
+    { id: 'lifestyle', label: '퇴원 후 일상생활', icon: <Home className="mr-2" /> },
+    { id: 'faq', label: '자주 묻는 질문(FAQ)', icon: <MessageCircle className="mr-2" /> },
   ];
 
   return (
@@ -39,7 +41,7 @@ export default function App() {
       <header className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-16 px-4 md:px-8 shadow-md">
         <div className="max-w-5xl mx-auto">
           <div className="flex items-center space-x-3 mb-4">
-            <Heart className="w-8 h-8 text-pink-300" />
+            <Heart className="text-2xl" />
             <span className="text-blue-200 font-bold tracking-wider text-sm bg-blue-900/50 px-3 py-1 rounded-full">환자 및 보호자 맞춤 안내서</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold mb-5 leading-tight">
@@ -75,14 +77,15 @@ export default function App() {
       </div>
 
       {/* Main Content Area */}
-      <main className="max-w-5xl mx-auto px-4 md:px-8 py-10 min-h-[500px]">
+      <main className="max-w-5xl mx-auto px-4 md:px-8 py-10">
         
         {/* Tab 1: Overview */}
         {activeTab === 'overview' && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
-            <section className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
+             {/* 비디오 섹션 수정 및 복구 */}
+             <section className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">
                 <h2 className="text-xl md:text-2xl font-bold mb-4 flex items-center text-blue-900">
-                    <Video className="w-8 h-8 mr-3 text-red-500" /> 영상으로 만나는 CAR-T 세포치료의 이해
+                    <span className="text-2xl mr-3">🎥</span> 영상으로 만나는 CAR-T 세포치료의 이해
                 </h2>
                 <p className="text-slate-600 leading-relaxed text-base mb-6">
                     글로 읽기 전, 부산대학교병원 혈액종양내과 신호진 교수가 직접 설명하는 혈액암 치료와 CAR-T 세포치료의 원리를 영상으로 먼저 확인하시면 훨씬 이해하기 쉽습니다.
@@ -102,7 +105,7 @@ export default function App() {
 
             <section className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
               <h2 className="text-2xl font-bold mb-6 flex items-center text-blue-900">
-                <Info className="w-8 h-8 mr-3 text-blue-500" />
+                <Info className="text-2xl mr-3" />
                 CAR-T 세포치료, 알기 쉬운 원리 설명
               </h2>
               <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-8">
@@ -117,22 +120,22 @@ export default function App() {
               <h3 className="font-bold text-lg mb-4 text-slate-800 border-b pb-2">CAR-T 치료의 3대 장점</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white border border-slate-200 p-6 rounded-xl hover:border-blue-400 transition-colors shadow-sm">
-                  <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-blue-600">
-                    <Activity className="w-6 h-6" />
+                  <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-2xl">
+                    <Activity />
                   </div>
                   <h3 className="font-bold text-lg mb-2 text-blue-900">살아있는 약 (Living Drug)</h3>
                   <p className="text-slate-600 text-sm">약물이 몸에서 사라지는 일반 항암제와 달리, 세포가 몸속에 살아남아 증식하며 지속적으로 암을 감시하고 공격합니다.</p>
                 </div>
                 <div className="bg-white border border-slate-200 p-6 rounded-xl hover:border-blue-400 transition-colors shadow-sm">
-                  <div className="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-indigo-600">
-                    <Stethoscope className="w-6 h-6" />
+                  <div className="bg-indigo-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-2xl">
+                    <Stethoscope />
                   </div>
                   <h3 className="font-bold text-lg mb-2 text-indigo-900">100% 개인 맞춤형</h3>
                   <p className="text-slate-600 text-sm">기성품 약이 아닙니다. 환자 본인의 피(세포)를 원료로 만들어지기 때문에 타인의 세포를 쓸 때 생기는 거부 반응이 없습니다.</p>
                 </div>
                 <div className="bg-white border border-slate-200 p-6 rounded-xl hover:border-blue-400 transition-colors shadow-sm">
-                  <div className="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-emerald-600">
-                    <ShieldAlert className="w-6 h-6" />
+                  <div className="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-2xl">
+                    <ShieldAlert />
                   </div>
                   <h3 className="font-bold text-lg mb-2 text-emerald-900">단 1회 투여로 끝</h3>
                   <p className="text-slate-600 text-sm">주기적으로 여러 번 입원하여 맞아야 하는 기존 항암치료와 달리, 단 한 번의 링거 주입(약 30분)으로 투여가 완료됩니다.</p>
@@ -147,10 +150,10 @@ export default function App() {
           <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
               <h2 className="text-2xl font-bold mb-2 flex items-center text-blue-900">
-                <Calendar className="w-8 h-8 mr-3 text-blue-500" />
+                <Calendar className="text-2xl mr-3" />
                 상세 치료 과정 (타임라인)
               </h2>
-              <p className="text-slate-500 mb-8 ml-11">전체 치료는 약 1달~2달에 걸쳐 진행됩니다.</p>
+              <p className="text-slate-500 mb-8 ml-9">전체 치료는 약 1달~2달에 걸쳐 진행됩니다.</p>
               
               <div className="relative border-l-4 border-blue-100 ml-3 md:ml-8 space-y-10">
                 {[
@@ -161,7 +164,7 @@ export default function App() {
                   { 
                     step: '2', title: 'CAR-T 세포 공장 제조 및 배양', time: '약 3~5주 소요', 
                     desc: '채집된 세포를 꽁꽁 얼려 해외나 국내의 전문 제약사 공장으로 보냅니다. 이곳에서 유전자를 조작하여 \'슈퍼 T세포\'로 만들고 그 숫자를 수억 개로 증식시킵니다.',
-                    sub: '이 기간 동안 환자는 집에서 대기하거나, 암세포가 커지는 것을 막기 위해 가벼운 항암치료(브릿지 치료)를 받을 수 있습니다.'
+                    sub: '💡 이 기간 동안 환자는 집에서 대기하거나, 암세포가 커지는 것을 막기 위해 가벼운 항암치료(브릿지 치료)를 받을 수 있습니다.'
                   },
                   { 
                     step: '3', title: '입원 및 전처치 항암치료', time: '세포 주입 3~5일 전', 
@@ -183,15 +186,14 @@ export default function App() {
                     <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 hover:shadow-md transition-all hover:border-blue-300">
                       <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
                         <h3 className="text-xl font-bold text-slate-800">{item.title}</h3>
-                        <span className="text-sm font-bold text-blue-700 bg-blue-100 px-4 py-1.5 rounded-full w-max mt-3 md:mt-0 shadow-sm flex items-center">
-                          <Calendar className="w-4 h-4 mr-1" /> {item.time}
+                        <span className="text-sm font-bold text-blue-700 bg-blue-100 px-4 py-1.5 rounded-full w-max mt-3 md:mt-0 shadow-sm">
+                          ⏳ {item.time}
                         </span>
                       </div>
                       <p className="text-slate-700 leading-relaxed">{item.desc}</p>
                       {item.sub && (
-                        <div className="mt-4 bg-orange-50 p-3 rounded-lg text-sm text-orange-800 border border-orange-100 flex items-start">
-                          <Info className="w-5 h-5 text-orange-500 mr-2 flex-shrink-0" />
-                          <span>{item.sub}</span>
+                        <div className="mt-4 bg-orange-50 p-3 rounded-lg text-sm text-orange-800 border border-orange-100">
+                          {item.sub}
                         </div>
                       )}
                     </div>
@@ -206,7 +208,7 @@ export default function App() {
         {activeTab === 'side-effects' && (
           <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="bg-red-600 text-white p-6 md:p-8 rounded-2xl shadow-md flex flex-col md:flex-row items-center md:items-start md:space-x-6">
-              <AlertCircle className="w-16 h-16 mb-4 md:mb-0 animate-pulse text-red-200 flex-shrink-0" />
+              <AlertCircle className="text-5xl mb-4 md:mb-0 animate-pulse" />
               <div>
                 <h3 className="text-2xl font-bold mb-2">응급 상황 대비 (필독!)</h3>
                 <p className="text-red-100 text-base md:text-lg leading-relaxed">
@@ -221,7 +223,7 @@ export default function App() {
               <div className="bg-white p-6 rounded-2xl shadow-sm border-2 border-orange-200">
                 <div className="flex items-center mb-4 pb-4 border-b border-orange-100">
                   <div className="bg-orange-100 p-3 rounded-full mr-4">
-                    <Thermometer className="w-8 h-8 text-orange-600" />
+                    <Thermometer className="text-2xl text-orange-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-800">사이토카인 방출 증후군</h3>
@@ -234,10 +236,10 @@ export default function App() {
                 
                 <h4 className="font-bold text-slate-700 mb-3 flex items-center">🚨 당장 알려야 할 주요 증상</h4>
                 <ul className="space-y-3">
-                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-orange-500 flex-shrink-0" /> 38도 이상의 고열 및 덜덜 떨리는 오한</li>
-                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-orange-500 flex-shrink-0" /> 숨쉬기 답답함, 산소 부족 느낌</li>
-                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-orange-500 flex-shrink-0" /> 심박수 증가 (두근거림) 및 극심한 피로감</li>
-                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-orange-500 flex-shrink-0" /> 어지러움 (혈압 저하로 인한 증상)</li>
+                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="mr-2 mt-0.5 text-orange-500 flex-shrink-0" /> 38도 이상의 고열 및 덜덜 떨리는 오한</li>
+                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="mr-2 mt-0.5 text-orange-500 flex-shrink-0" /> 숨쉬기 답답함, 산소 부족 느낌</li>
+                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="mr-2 mt-0.5 text-orange-500 flex-shrink-0" /> 심박수 증가 (두근거림) 및 극심한 피로감</li>
+                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="mr-2 mt-0.5 text-orange-500 flex-shrink-0" /> 어지러움 (혈압 저하로 인한 증상)</li>
                 </ul>
               </div>
 
@@ -245,7 +247,7 @@ export default function App() {
               <div className="bg-white p-6 rounded-2xl shadow-sm border-2 border-purple-200">
                 <div className="flex items-center mb-4 pb-4 border-b border-purple-100">
                   <div className="bg-purple-100 p-3 rounded-full mr-4">
-                    <Activity className="w-8 h-8 text-purple-600" />
+                    <Brain className="text-2xl text-purple-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-800">신경독성 증후군</h3>
@@ -258,10 +260,10 @@ export default function App() {
                 
                 <h4 className="font-bold text-slate-700 mb-3 flex items-center">🚨 당장 알려야 할 주요 증상</h4>
                 <ul className="space-y-3">
-                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-purple-500 flex-shrink-0" /> 의식이 흐려짐, 평소와 다르게 잠을 과하게 잠</li>
-                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-purple-500 flex-shrink-0" /> 엉뚱한 말을 하거나, 단어가 잘 생각나지 않음</li>
-                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-purple-500 flex-shrink-0" /> 손떨림, 젓가락질이나 글씨 쓰기를 갑자기 못함</li>
-                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="w-5 h-5 mr-2 mt-0.5 text-purple-500 flex-shrink-0" /> 극심한 두통 또는 경련 (드물지만 위험함)</li>
+                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="mr-2 mt-0.5 text-purple-500 flex-shrink-0" /> 의식이 흐려짐, 평소와 다르게 잠을 과하게 잠</li>
+                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="mr-2 mt-0.5 text-purple-500 flex-shrink-0" /> 엉뚱한 말을 하거나, 단어가 잘 생각나지 않음</li>
+                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="mr-2 mt-0.5 text-purple-500 flex-shrink-0" /> 손떨림, 젓가락질이나 글씨 쓰기를 갑자기 못함</li>
+                  <li className="flex items-start text-slate-700 font-medium bg-slate-50 p-2 rounded"><CheckCircle2 className="mr-2 mt-0.5 text-purple-500 flex-shrink-0" /> 극심한 두통 또는 경련 (드물지만 위험함)</li>
                 </ul>
               </div>
             </div>
@@ -269,10 +271,10 @@ export default function App() {
              {/* 감염 및 혈구감소증 */}
              <div className="bg-slate-800 text-white p-6 rounded-2xl shadow-sm mt-6">
                 <div className="flex items-center mb-2">
-                  <ShieldAlert className="w-8 h-8 mr-3 text-emerald-400" />
+                  <Microbe className="text-2xl mr-3 text-emerald-400" />
                   <h3 className="text-xl font-bold">오랜 기간 지속되는 부작용: 면역력 저하</h3>
                 </div>
-                <p className="text-slate-300 text-sm md:text-base leading-relaxed pl-11">
+                <p className="text-slate-300 text-sm md:text-base leading-relaxed pl-9">
                   CAR-T 세포는 암세포뿐만 아니라 정상적인 B세포(항체 생성 세포)도 파괴합니다. 이로 인해 퇴원 후에도 수개월 이상 백혈구 수치가 낮고 면역력이 바닥인 상태가 유지됩니다. <strong>가벼운 감기도 치명적인 폐렴으로 번질 수 있으므로 퇴원 후 철저한 위생 관리가 생명입니다.</strong>
                 </p>
               </div>
@@ -284,7 +286,7 @@ export default function App() {
           <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="bg-gradient-to-br from-indigo-700 to-indigo-900 text-white p-6 md:p-8 rounded-2xl shadow-lg border border-indigo-500">
               <h2 className="text-2xl font-bold mb-4 flex items-center">
-                <Users className="w-10 h-10 mr-3 text-indigo-300" />
+                <Users className="text-3xl mr-3 text-indigo-300" />
                 보호자는 제2의 의료진입니다
               </h2>
               <p className="text-indigo-100 text-lg leading-relaxed">
@@ -296,7 +298,7 @@ export default function App() {
 
             <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
               <h3 className="text-xl font-bold text-slate-800 mb-6 flex items-center border-b pb-4">
-                <FileText className="w-8 h-8 mr-3 text-blue-600" />
+                <Clipboard className="text-2xl mr-3 text-blue-600" />
                 매일 하루 2번! 보호자가 직접 하는 ICE 체크리스트
               </h3>
               
@@ -306,9 +308,9 @@ export default function App() {
                   <h4 className="font-bold text-lg text-slate-800 mb-2">지남력 (시간/장소 파악)</h4>
                   <p className="text-sm text-slate-600 mb-2">환자에게 물어보고 대답이 맞는지 확인하세요.</p>
                   <ul className="text-slate-700 font-medium space-y-2">
-                    <li className="flex items-center"><MessageCircle className="w-4 h-4 mr-2 text-blue-500"/> "올해가 몇 년도인가요?"</li>
-                    <li className="flex items-center"><MessageCircle className="w-4 h-4 mr-2 text-blue-500"/> "지금 있는 곳이 무슨 병원인가요?"</li>
-                    <li className="flex items-center"><MessageCircle className="w-4 h-4 mr-2 text-blue-500"/> "현재 우리 나라 대통령은 누구인가요?"</li>
+                    <li>🗣️ "올해가 몇 년도인가요?"</li>
+                    <li>🗣️ "지금 있는 곳이 무슨 병원인가요?"</li>
+                    <li>🗣️ "현재 우리 나라 대통령은 누구인가요?"</li>
                   </ul>
                 </div>
                 
@@ -317,8 +319,8 @@ export default function App() {
                   <h4 className="font-bold text-lg text-slate-800 mb-2">이름 대기 (사물 인지)</h4>
                   <p className="text-sm text-slate-600 mb-2">주변 사물 3개를 가리키며 이름을 말하게 하세요.</p>
                   <ul className="text-slate-700 font-medium space-y-2">
-                    <li className="flex items-center"><MousePointerClick className="w-4 h-4 mr-2 text-indigo-500"/> (볼펜을 보여주며) "이게 뭔가요?"</li>
-                    <li className="flex items-center"><MousePointerClick className="w-4 h-4 mr-2 text-indigo-500"/> (시계를 보여주며) "이게 뭔가요?"</li>
+                    <li>👉 (볼펜을 보여주며) "이게 뭔가요?"</li>
+                    <li>👉 (시계를 보여주며) "이게 뭔가요?"</li>
                   </ul>
                 </div>
 
@@ -327,8 +329,8 @@ export default function App() {
                   <h4 className="font-bold text-lg text-slate-800 mb-2">명령 수행 능력</h4>
                   <p className="text-sm text-slate-600 mb-2">특정 행동을 지시하고 잘 따라하는지 확인하세요.</p>
                   <ul className="text-slate-700 font-medium space-y-2">
-                    <li className="flex items-center"><MessageCircle className="w-4 h-4 mr-2 text-emerald-500"/> "왼손을 들어서 오른쪽 어깨를 짚어보세요."</li>
-                    <li className="flex items-center"><MessageCircle className="w-4 h-4 mr-2 text-emerald-500"/> "눈을 꽉 감았다가 떠보세요."</li>
+                    <li>🗣️ "왼손을 들어서 오른쪽 어깨를 짚어보세요."</li>
+                    <li>🗣️ "눈을 꽉 감았다가 떠보세요."</li>
                   </ul>
                 </div>
 
@@ -337,7 +339,7 @@ export default function App() {
                   <h4 className="font-bold text-lg text-slate-800 mb-2">글씨 쓰기 (가장 중요)</h4>
                   <p className="text-sm text-slate-600 mb-2">매일 동일한 표준 문장을 노트에 적게 하세요.</p>
                   <ul className="text-slate-700 font-medium space-y-2">
-                    <li className="flex items-center"><FileText className="w-4 h-4 mr-2 text-amber-500"/> 예시: <strong>"우리나라 대한민국 만세"</strong></li>
+                    <li>📝 예시: <strong>"우리나라 대한민국 만세"</strong></li>
                     <li className="text-xs text-red-600 mt-2">* 어제와 달리 글씨가 구불구불해지거나, 글자가 겹치거나, 아예 쓰지 못한다면 즉시 호출하세요!</li>
                   </ul>
                 </div>
@@ -348,15 +350,15 @@ export default function App() {
                 <h3 className="text-lg font-bold text-slate-800 mb-4 border-b pb-2">보호자의 추가 의무 사항</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start text-slate-700">
-                    <ArrowRight className="w-5 h-5 mr-3 mt-1 text-blue-500 flex-shrink-0" />
+                    <ArrowRight className="mr-3 mt-1 text-blue-500 flex-shrink-0" />
                     <span><strong>체온 모니터링:</strong> 매일 규칙적으로 체온을 측정하고, 38도가 넘어가면 해열제를 먹이기 전 의료진에게 먼저 알리세요.</span>
                   </li>
                   <li className="flex items-start text-slate-700">
-                    <ArrowRight className="w-5 h-5 mr-3 mt-1 text-blue-500 flex-shrink-0" />
+                    <ArrowRight className="mr-3 mt-1 text-blue-500 flex-shrink-0" />
                     <span><strong>완벽한 감염 차단:</strong> 보호자 본인의 손 씻기는 기본이며, 기침 등 감기 증상이 있는 외부인은 100% 면회를 금지시켜야 합니다.</span>
                   </li>
                   <li className="flex items-start text-slate-700">
-                    <ArrowRight className="w-5 h-5 mr-3 mt-1 text-blue-500 flex-shrink-0" />
+                    <ArrowRight className="mr-3 mt-1 text-blue-500 flex-shrink-0" />
                     <span><strong>정서적 지지대 역할:</strong> 무균실과 같은 고립된 공간에서 환자는 우울감이나 불안을 쉽게 느낍니다. 긍정적인 대화로 안심시켜 주세요.</span>
                   </li>
                 </ul>
@@ -369,7 +371,7 @@ export default function App() {
           <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
              <div className="bg-emerald-50 p-6 md:p-8 rounded-2xl shadow-sm border border-emerald-200">
               <h2 className="text-2xl font-bold flex items-center text-emerald-900 mb-3">
-                <Home className="w-8 h-8 mr-3" />
+                <Home className="text-2xl mr-3" />
                 퇴원 후 일상생활 완벽 가이드
               </h2>
               <p className="text-emerald-800">
@@ -382,28 +384,28 @@ export default function App() {
               {/* 식생활 */}
               <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
                 <div className="flex items-center mb-4 border-b pb-3">
-                  <div className="bg-orange-100 p-3 rounded-full mr-3 text-orange-600"><Utensils className="w-8 h-8" /></div>
+                  <div className="text-3xl bg-orange-100 p-3 rounded-full mr-3"><Utensils /></div>
                   <h3 className="font-bold text-xl text-slate-800">식생활 수칙 (저균식)</h3>
                 </div>
                 <ul className="text-sm text-slate-700 space-y-3">
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> <strong>모든 고기와 생선은 바싹 익혀서</strong> 드세요. (회, 육회, 초밥 절대 금지)</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 생채소, 생과일(껍질 깎아 먹는 과일 제외), 생나물은 피하고 데치거나 익혀서 드세요.</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 유산균 음료, 발효되지 않은 치즈, 상온에 방치된 음식은 세균 감염 위험이 높습니다.</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 물은 반드시 끓여 마시거나, 뚜껑을 갓 딴 생수만 마셔야 합니다.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> <strong>모든 고기와 생선은 바싹 익혀서</strong> 드세요. (회, 육회, 초밥 절대 금지)</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 생채소, 생과일(껍질 깎아 먹는 과일 제외), 생나물은 피하고 데치거나 익혀서 드세요.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 유산균 음료, 발효되지 않은 치즈, 상온에 방치된 음식은 세균 감염 위험이 높습니다.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 물은 반드시 끓여 마시거나, 뚜껑을 갓 딴 생수만 마셔야 합니다.</li>
                 </ul>
               </div>
 
               {/* 개인위생 */}
               <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
                 <div className="flex items-center mb-4 border-b pb-3">
-                  <div className="bg-blue-100 p-3 rounded-full mr-3 text-blue-600"><ShieldAlert className="w-8 h-8" /></div>
+                  <div className="text-3xl bg-blue-100 p-3 rounded-full mr-3"><ShieldAlert /></div>
                   <h3 className="font-bold text-xl text-slate-800">개인위생 및 환경</h3>
                 </div>
                 <ul className="text-sm text-slate-700 space-y-3">
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 외출 후, 화장실 사용 후, 식사 전 <strong>비누로 30초 이상 손 씻기</strong>는 필수입니다.</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 구강 감염을 막기 위해 부드러운 칫솔을 사용하고, 상처가 나지 않게 전기면도기를 쓰세요.</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 집안은 매일 환기하고 곰팡이가 피지 않도록 청소하세요.</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 화분 분갈이(흙에 곰팡이균 존재), 애완동물의 배설물 청소 등은 환자가 절대 하면 안 됩니다.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 외출 후, 화장실 사용 후, 식사 전 <strong>비누로 30초 이상 손 씻기</strong>는 필수입니다.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 구강 감염을 막기 위해 부드러운 칫솔을 사용하고, 상처가 나지 않게 전기면도기를 쓰세요.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 집안은 매일 환기하고 곰팡이가 피지 않도록 청소하세요.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 화분 분갈이(흙에 곰팡이균 존재), 애완동물의 배설물 청소 등은 환자가 절대 하면 안 됩니다.</li>
                 </ul>
               </div>
             </div>
@@ -412,25 +414,25 @@ export default function App() {
                {/* 외출 */}
                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
                 <div className="flex items-center mb-4 border-b pb-3">
-                  <div className="bg-indigo-100 p-3 rounded-full mr-3 text-indigo-600"><Users className="w-8 h-8" /></div>
+                  <div className="text-3xl bg-indigo-100 p-3 rounded-full mr-3"><Users /></div>
                   <h3 className="font-bold text-xl text-slate-800">외출 및 신체 활동</h3>
                 </div>
                 <ul className="text-sm text-slate-700 space-y-3">
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 사람이 붐비는 마트, 영화관, 대중교통 이용은 피하세요.</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 병원 방문 등 부득이한 외출 시 <strong>KF94 마스크</strong>를 빈틈없이 착용하세요.</li>
-                  <li className="flex items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 무리한 운동(등산, 헬스)은 피하고, 인적이 드문 곳에서 30분 이내 가벼운 산책만 하세요.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 사람이 붐비는 마트, 영화관, 대중교통 이용은 피하세요.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 병원 방문 등 부득이한 외출 시 <strong>KF94 마스크</strong>를 빈틈없이 착용하세요.</li>
+                  <li className="flex items-start"><CheckCircle2 className="text-emerald-500 mr-2 flex-shrink-0 mt-0.5"/> 무리한 운동(등산, 헬스)은 피하고, 인적이 드문 곳에서 30분 이내 가벼운 산책만 하세요.</li>
                 </ul>
               </div>
 
                {/* 절대 금지 */}
                <div className="bg-red-50 p-6 rounded-2xl shadow-sm border border-red-200 hover:shadow-md transition-shadow">
                 <div className="flex items-center mb-4 border-b border-red-200 pb-3">
-                  <div className="bg-red-100 p-3 rounded-full mr-3 text-red-600"><AlertCircle className="w-8 h-8" /></div>
+                  <div className="text-3xl bg-red-100 p-3 rounded-full mr-3"><Car /></div>
                   <h3 className="font-bold text-xl text-red-800">퇴원 직후 절대 금지 사항</h3>
                 </div>
                 <ul className="text-sm text-red-700 space-y-3">
-                  <li className="flex items-start"><AlertCircle className="w-5 h-5 text-red-500 mr-2 flex-shrink-0 mt-0.5"/> <strong>운전 금지:</strong> 퇴원 후 8주 동안은 절대 운전을 하거나 무거운 기계를 다루지 마세요. (지연성 신경독성으로 인해 갑자기 졸음이 오거나 발작이 올 수 있습니다.)</li>
-                  <li className="flex items-start"><AlertCircle className="w-5 h-5 text-red-500 mr-2 flex-shrink-0 mt-0.5"/> <strong>백신 접종 주의:</strong> 생백신 접종은 절대 불가하며, 다른 예방접종도 주치의와 반드시 상의해야 합니다.</li>
+                  <li className="flex items-start"><AlertCircle className="text-red-500 mr-2 flex-shrink-0 mt-0.5"/> <strong>운전 금지:</strong> 퇴원 후 8주 동안은 절대 운전을 하거나 무거운 기계를 다루지 마세요. (지연성 신경독성으로 인해 갑자기 졸음이 오거나 발작이 올 수 있습니다.)</li>
+                  <li className="flex items-start"><AlertCircle className="text-red-500 mr-2 flex-shrink-0 mt-0.5"/> <strong>백신 접종 주의:</strong> 생백신 접종은 절대 불가하며, 다른 예방접종도 주치의와 반드시 상의해야 합니다.</li>
                 </ul>
               </div>
             </div>
@@ -443,7 +445,7 @@ export default function App() {
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
               <h2 className="text-2xl font-bold mb-6 flex items-center text-blue-900 border-b pb-4">
-                <MessageCircle className="w-8 h-8 mr-3" />
+                <MessageCircle className="text-3xl mr-3" />
                 자주 묻는 질문 (Q&A)
               </h2>
               
@@ -475,7 +477,7 @@ export default function App() {
                         <span className="text-blue-600 mr-2">Q.</span> 
                         {faq.q}
                       </span>
-                      <ChevronDown className={`w-5 h-5 transform transition-transform ${openFaq === index ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`transform transition-transform ${openFaq === index ? 'rotate-180' : ''}`} />
                     </button>
                     {openFaq === index && (
                       <div className="p-5 bg-white text-slate-700 leading-relaxed border-t border-slate-100 flex items-start">
@@ -488,7 +490,7 @@ export default function App() {
               </div>
               
               <div className="mt-8 bg-blue-50 p-4 rounded-lg text-sm text-blue-800 flex items-start">
-                <Info className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" />
+                <Info className="mr-2 mt-0.5 flex-shrink-0" />
                 <p>이 외에도 치료와 관련하여 궁금한 점이나 불편한 증상이 있다면, 주저하지 말고 <strong>담당 주치의나 코디네이터(전문 간호사)</strong>에게 문의하시기 바랍니다.</p>
               </div>
             </div>
@@ -500,7 +502,7 @@ export default function App() {
       <footer className="bg-slate-900 text-slate-400 py-10 text-center text-sm px-4 mt-8 border-t-4 border-blue-600">
         <div className="max-w-4xl mx-auto">
           <p className="mb-4 flex items-center justify-center font-semibold text-slate-300 text-lg">
-            <AlertCircle className="w-5 h-5 mr-2 text-red-400" />
+            <AlertCircle className="mr-2 text-red-400" />
             면책 조항 (Disclaimer)
           </p>
           <div className="bg-slate-800 p-6 rounded-xl text-left md:text-center leading-relaxed">
